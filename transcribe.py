@@ -14,7 +14,7 @@ audio_file = sys.argv[1]
 
 # Transcribe
 print(f"Transcribing {audio_file}...")
-result = model.transcribe(audio_file)
+result = model.transcribe(audio_file, language="en", verbose=True)
 
 # Print and save
 print("\n--- Transcription ---")
