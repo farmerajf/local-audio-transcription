@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Initial setup script for open-whisper-transcribe project
+# Setup script for local-audio-transcription project
+# Run with: source setup.sh
 
 set -e
 
-echo "=== Open Whisper Transcribe Setup ==="
+echo "=== Local Audio Transcription Setup ==="
 echo ""
 
 # Create virtual environment if it doesn't exist
@@ -31,8 +32,14 @@ pip install -r requirements.txt
 echo ""
 echo "=== Setup Complete ==="
 echo ""
-echo "To use the transcription tool:"
-echo "  1. Activate the environment: source venv/bin/activate"
-echo "  2. Run transcription: python transcribe.py <audio_file.m4a>"
+
+# Check if script was sourced or executed
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "Note: Run 'source setup.sh' instead of './setup.sh' to auto-activate the environment."
+    echo "Or manually activate with: source venv/bin/activate"
+else
+    echo "Environment is now active. Run: python transcribe.py <audio_file>"
+fi
+
 echo ""
-echo "To deactivate the environment later, run: deactivate"
+echo "To deactivate later, run: deactivate"
